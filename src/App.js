@@ -8,12 +8,12 @@ import Parallaxe from './components/Parallaxe/Parallaxe';
 import Portfolio from './components/Portfolio/Portfolio';
 import Presentation from './components/Presentation/Presentation';
 import Range from './components/Range/Range';
-import ScrollMagic from "scrollmagic";
-import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
-import { TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
+
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 function App() {
-  ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+  gsap.registerPlugin(ScrollTrigger);
 
   return (
     <>

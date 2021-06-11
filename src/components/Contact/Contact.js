@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './Contact.scss'
+import gsap from "gsap";
 
 export default function Contact() {
 
-const [mailto, setMailto] = useState('#');
+    //const [mailto, setMailto] = useState('#');
 
     useEffect(() => {
         const input_fields = document.querySelectorAll('input');
@@ -17,27 +18,39 @@ const [mailto, setMailto] = useState('#');
                 }
             })
         }
+
+        const tl = gsap.timeline({
+            // yes, we can add it to an entire timeline!
+            scrollTrigger: {
+                trigger: ".section-contact",
+                start: "top center", // when the top of the trigger hits the top of the viewport
+                toggleActions: "play none none reverse"
+            }
+        });
+        // add animations and labels to the timeline
+        tl.from(".section-contact", {opacity: 0});
+
     }, []);
 
 
-/* 
-
-    const destinataire = 'stefan.llobera@gmail.com'
-    const mailPwd = () => {
-        
-        const prenom = document.querySelector('input#prenom');
-        const nom = document.querySelector('input#nom');
-        const contenu = document.querySelector('textarea#txt');
-        if (prenom && nom && contenu) {
-            console.log('nuibsjgbfdsuigds')
-            setMailto(encodeURI('mailto:' + destinataire + '?' +
-            '&subject=Contact de ' + prenom.value + ' ' + nom.value +
-            '&body=' + contenu.value));
+    /* 
+    
+        const destinataire = 'stefan.llobera@gmail.com'
+        const mailPwd = () => {
+            
+            const prenom = document.querySelector('input#prenom');
+            const nom = document.querySelector('input#nom');
+            const contenu = document.querySelector('textarea#txt');
+            if (prenom && nom && contenu) {
+                console.log('nuibsjgbfdsuigds')
+                setMailto(encodeURI('mailto:' + destinataire + '?' +
+                '&subject=Contact de ' + prenom.value + ' ' + nom.value +
+                '&body=' + contenu.value));
+            }
         }
-    }
-
-
-    const handleSendMail = mailPwd(); */
+    
+    
+        const handleSendMail = mailPwd(); */
 
     return (
         <section className="section-contact" id="contact">
@@ -61,7 +74,7 @@ const [mailto, setMailto] = useState('#');
                     </div>
 
                     <div className="form-groupe">
-                        <a className="button-sub">ENVOYER</a>
+                        <input type="submit" value="ENVOYER" className="button-sub"></input>
                     </div>
                 </form>
             </div>

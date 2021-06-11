@@ -1,15 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './Range.scss'
-import ScrollMagic from "scrollmagic";
 import {  TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 
 
 export default function Range() {
 
-    
-    const [controller] = useState(new ScrollMagic.Controller());
-
-    
     useEffect(() => {
         const sectionComp = document.querySelector('.section-range');
         const titreComp = document.querySelector('.titre-exp');
@@ -18,7 +13,13 @@ export default function Range() {
         const allBarres = document.querySelectorAll('.barre-skill')
         const allShadowBarres = document.querySelectorAll('.barre-grises')
 
-        const tlCompetences = new TimelineMax();
+        const tlCompetences = new TimelineMax({
+            scrollTrigger: {
+                trigger: sectionComp,
+                start: "top center", // when the top of the trigger hits the top of the viewport
+                toggleActions: "play none none reverse"
+            }
+        });
 
         tlCompetences
             .from(titreComp, { opacity: 0, duration: 0.6 })
@@ -27,12 +28,6 @@ export default function Range() {
             .staggerFrom(allShadowBarres, 0.5, { width: 0 }, 0.1, '-=1')
             .staggerFrom(allBarres, 0.5, { width: 0 }, 0.1, '-=0.5')
 
-        new ScrollMagic.Scene({
-            triggerElement: sectionComp,
-            reverse: true
-        })
-            .setTween(tlCompetences)
-            .addTo(controller);
             // eslint-disable-next-line
     }, [])
 

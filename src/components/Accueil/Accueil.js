@@ -65,26 +65,26 @@ export default function Accueil() {
                 
                 <a href="https://www.linkedin.com/in/stefan-llobera-2192ab178/" target="blank">
                     <div className="media media2">
-                        <img src="ressources/linkedin.svg" alt="linkedin icone" className="icone-medias" />
+                        <img src="portfolio-react/ressources/linkedin.svg" alt="linkedin icone" className="icone-medias" />
                     </div>
                 </a>
 
                 <a href="https://github.com/bcgetpause" target="blank">
                     <div className="media media1">
-                        <img src="ressources/github.svg" alt="github icone" className="icone-medias" />
+                        <img src="portfolio-react/ressources/github.svg" alt="github icone" className="icone-medias" />
                     </div>
                 </a>
                 
                 <a href="https://codepen.io/bcgetpause" target="blank">
                     <div className="media media2">
-                        <img src="ressources/codepen.svg" alt="codepen icone" className="icone-medias" />
+                        <img src="portfolio-react/ressources/codepen.svg" alt="codepen icone" className="icone-medias" />
                     </div>
                 </a>
             </div>
 
             <a href="#pres">
                 <div className="btn-rond">
-                    <img src="ressources/arrowDown.svg" alt="logo fleche bas" className="logo-btn-rond-acc" />
+                    <img src="portfolio-react/ressources/arrowDown.svg" alt="logo fleche bas" className="logo-btn-rond-acc" />
                 </div>
             </a>
         </section>

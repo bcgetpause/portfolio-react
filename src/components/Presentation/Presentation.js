@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './Presentation.scss'
-import ScrollMagic from "scrollmagic";
 import { TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 
 export default function Presentation() {
-
-    const [controller] = useState(new ScrollMagic.Controller());
 
     useEffect(() => {
         const presentationContainer = document.querySelector('.presentation')
@@ -13,21 +10,18 @@ export default function Presentation() {
         const presGauche = document.querySelector('.pres-gauche')
         const listePres = document.querySelectorAll('.item-liste')
 
-        const tlpres = new TimelineMax();
+        const tlpres = new TimelineMax({
+            scrollTrigger: {
+                trigger: presentationContainer,
+                start: "top center", // when the top of the trigger hits the center of the viewport
+            }
+        });
 
         tlpres
             .from(titrePres, { y: -200, opacity: 0, duration: 0.6 })
             .from(presGauche, { y: -20, opacity: 0, duration: 0.6 }, '-=0.5')
             .staggerFrom(listePres, 1, { opacity: 0 }, 0.2, '-=0.5')
 
-        new ScrollMagic.Scene({
-            triggerElement: presentationContainer,
-            triggerHook: 0.5,
-            reverse: false,
-            duration: 200
-        })
-            .setTween(tlpres)
-            .addTo(controller)
             // eslint-disable-next-line
     }, [])
 

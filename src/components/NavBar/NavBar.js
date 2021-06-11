@@ -37,7 +37,7 @@ export default function NavBar() {
 
                 <div className="blocs-menu">
                     <div className="cercle-portrait">
-                        <img src="ressources/reborn-sawada.jpg" alt="portrait img" />
+                        <img src="portfolio-react/ressources/reborn-sawada.jpg" alt="portrait img" />
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@ export default function NavBar() {
                 <div className="blocs-menu">
                     <div className="logo-cercle">
                         <a href="#contact">
-                            <img src="ressources/contact.svg" alt="logo contact" />
+                            <img src="portfolio-react/ressources/contact.svg" alt="logo contact" />
                         </a>
                     </div>
                 </div>

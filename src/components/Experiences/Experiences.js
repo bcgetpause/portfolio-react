@@ -1,26 +1,40 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Experiences.scss'
+import gsap from "gsap";
 
 export default function Experiences() {
+
+    useEffect(() => {
+        const tl = gsap.timeline({
+            // yes, we can add it to an entire timeline!
+            scrollTrigger: {
+                trigger: ".travail-exp",
+                start: "top center", // when the top of the trigger hits the top of the viewport
+            }
+        });
+        // add animations and labels to the timeline
+        tl.from(".travail-exp", {opacity: 0});
+    }, [])
+
     return (
         <section className="travail-exp" id="exp">
             <h2 className="titre-travail-exp">Mes expériences</h2>
             <div className="cont-exp-travail">
                 <div className="barre-verticale">
                     <div className="boule-ico">
-                        <img src="ressources/google.svg" alt="icone gauche" />
+                        <img src="portfolio-react/ressources/google.svg" alt="icone gauche" />
                     </div>
                     <div className="boule-ico">
-                        <img src="ressources/instagram.svg" alt="icone gauche" />
+                        <img src="portfolio-react/ressources/instagram.svg" alt="icone gauche" />
                     </div>
                     <div className="boule-ico">
-                        <img src="ressources/amazon.svg" alt="icone gauche" />
+                        <img src="portfolio-react/ressources/amazon.svg" alt="icone gauche" />
                     </div>
                     <div className="boule-ico">
-                        <img src="ressources/apple.svg" alt="icone gauche" />
+                        <img src="portfolio-react/ressources/apple.svg" alt="icone gauche" />
                     </div>
                     <div className="boule-ico">
-                        <img src="ressources/plane.svg" className="avion" alt="icone gauche" />
+                        <img src="portfolio-react/ressources/plane.svg" className="avion" alt="icone gauche" />
                     </div>
                 </div>
 
