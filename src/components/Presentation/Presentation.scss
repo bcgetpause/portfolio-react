@@ -132,8 +132,13 @@
         padding-top: 50px;
     }
 
+    .liste-presentation {
+        padding: 0 0;
+    }
+
     .container-presentation {
         flex-direction: column;
+        align-items: center;
     }
 
     .pres-gauche {
