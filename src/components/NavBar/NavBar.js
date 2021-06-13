@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 import './NavBar.scss'
+import avatar from '../../ressources/reborn-sawada.jpg'
+import contact from '../../ressources/contact.svg'
+
 
 export default function NavBar() {
 
@@ -37,7 +40,7 @@ export default function NavBar() {
 
                 <div className="blocs-menu">
                     <div className="cercle-portrait">
-                        <img src="portfolio-react/ressources/reborn-sawada.jpg" alt="portrait img" />
+                        <img src={avatar} alt="portrait img" />
                     </div>
                 </div>
 
@@ -55,13 +58,13 @@ export default function NavBar() {
                 </a>
                     </span>
                 </div>
-                <div className="blocs-menu">
+                {/* <div className="blocs-menu">
                     <span className="nav-menu-item">
                         <a href="#port">
                             Portfolio
                 </a>
                     </span>
-                </div>
+                </div> */}
                 <div className="blocs-menu">
                     <span className="nav-menu-item">
                         <a href="#range">
@@ -71,16 +74,15 @@ export default function NavBar() {
                 </div>
                 <div className="blocs-menu">
                     <span className="nav-menu-item">
-                        <a href="#contact">
-                            Contact
+                        <a href="#exp">
+                            Expériences
                 </a>
                     </span>
                 </div>
-
                 <div className="blocs-menu">
                     <div className="logo-cercle">
                         <a href="#contact">
-                            <img src="portfolio-react/ressources/contact.svg" alt="logo contact" />
+                            <img src={contact} alt="logo contact" />
                         </a>
                     </div>
                 </div>

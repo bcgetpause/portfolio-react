@@ -1,5 +1,10 @@
 import React, {useEffect} from 'react'
 import './Experiences.scss'
+import google from '../../ressources/google.svg'
+import instagram from '../../ressources/instagram.svg'
+import amazon from '../../ressources/amazon.svg'
+import apple from '../../ressources/apple.svg'
+import plane from '../../ressources/plane.svg'
 import gsap from "gsap";
 
 export default function Experiences() {
@@ -22,19 +27,19 @@ export default function Experiences() {
             <div className="cont-exp-travail">
                 <div className="barre-verticale">
                     <div className="boule-ico">
-                        <img src="portfolio-react/ressources/google.svg" alt="icone gauche" />
+                        <img src={google} alt="icone gauche" />
                     </div>
                     <div className="boule-ico">
-                        <img src="portfolio-react/ressources/instagram.svg" alt="icone gauche" />
+                        <img src={instagram} alt="icone gauche" />
                     </div>
                     <div className="boule-ico">
-                        <img src="portfolio-react/ressources/amazon.svg" alt="icone gauche" />
+                        <img src={amazon} alt="icone gauche" />
                     </div>
                     <div className="boule-ico">
-                        <img src="portfolio-react/ressources/apple.svg" alt="icone gauche" />
+                        <img src={apple} alt="icone gauche" />
                     </div>
                     <div className="boule-ico">
-                        <img src="portfolio-react/ressources/plane.svg" className="avion" alt="icone gauche" />
+                        <img src={plane} className="avion" alt="icone gauche" />
                     </div>
                 </div>
 

@@ -1,0 +1,130 @@
+.section-range {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    z-index: -1;
+}
+.range-autres {
+    position: relative;
+}
+.titre-autres {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.grille-autres {
+    display: grid;
+    grid-template: repeat(4,80px) / repeat(2, 500px);
+    grid-gap: 50px;
+}
+.barre-autres {
+    height: 15px;
+    background: rgb(167,146,243);
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.barre-grises-autres {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 15px;
+    background: rgb(216,216,216);
+    border-radius: 5px;
+}
+.b1 {
+    width: 90%;
+}
+.b2 {
+    width: 75%;
+    background: rgb(243,237,146);
+}
+.b3 {
+    width: 70%;
+    background: rgb(243,237,146);
+}
+.b4 {
+    width: 80%;
+}
+.b5 {
+    width: 70%;
+}
+.b6 {
+    width: 80%;
+    background: rgb(243,237,146);
+}
+.label-autres {
+    font-size: 24px;
+} 
+/* Medias Range */
+
+@media screen and (max-width: 1550px) {
+    .grille-autres{
+        grid-template: repeat(4,80px) / repeat(2,400px);
+    }
+}
+
+@media screen and (max-width: 1380px) {
+
+    .section-range {
+        padding-left: 0;
+    }
+    .titre-autres {
+        padding-left: 0;
+    }
+    .grille-autres {
+        grid-template: repeat(8,80px) / 500;
+        padding-left: 0;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .grille-autres {
+        grid-template: repeat(8,80px) / 400px;
+    }
+
+}
+@media screen and (max-width: 580px) {
+    .grille-autres {
+        grid-template: repeat(8, 80px) / 300px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .titre-autres {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+    .label-autres {
+        font-size: 20px;
+    }
+    .grille-autres{
+        grid-template: repeat(8,80px) / 300px;
+        grid-gap: 40px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+
+    .titre-autres {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .label-autre {
+        font-size: 18px;
+    }
+
+    .grille-autres {
+        grid-template: repeat(8, 80px) / 250px;
+        grid-gap: 20px;
+    }
+}

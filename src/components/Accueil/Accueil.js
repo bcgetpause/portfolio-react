@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react'
 import './Accueil.scss'
+import linkedin from '../../ressources/linkedin.svg'
+import github from '../../ressources/github.svg'
+import codepen from '../../ressources/codepen.svg'
+import flecheBas from '../../ressources/arrowDown.svg'
 import Typewriter from 'typewriter-effect';
 import gsap from "gsap"; // Also works with TweenLite and TimelineLite
 
@@ -58,33 +62,33 @@ export default function Accueil() {
                         .start();
                 }}
             />
-            <a href="#port" className="btn-acc btn-acc1">Portfolio</a>
-            <a href="#range" className="btn-acc btn-acc2">Expériences</a>
+            {/* <a href="#port" className="btn-acc btn-acc1">Portfolio</a> */}
+            <a href="#range" className="btn-acc btn-acc1">Expériences</a>
 
             <div className="medias">
                 
                 <a href="https://www.linkedin.com/in/stefan-llobera-2192ab178/" target="blank">
                     <div className="media media2">
-                        <img src="portfolio-react/ressources/linkedin.svg" alt="linkedin icone" className="icone-medias" />
+                        <img src={linkedin} alt="linkedin icone" className="icone-medias" />
                     </div>
                 </a>
 
                 <a href="https://github.com/bcgetpause" target="blank">
                     <div className="media media1">
-                        <img src="portfolio-react/ressources/github.svg" alt="github icone" className="icone-medias" />
+                        <img src={github} alt="github icone" className="icone-medias" />
                     </div>
                 </a>
                 
                 <a href="https://codepen.io/bcgetpause" target="blank">
                     <div className="media media2">
-                        <img src="portfolio-react/ressources/codepen.svg" alt="codepen icone" className="icone-medias" />
+                        <img src={codepen} alt="codepen icone" className="icone-medias" />
                     </div>
                 </a>
             </div>
 
             <a href="#pres">
                 <div className="btn-rond">
-                    <img src="portfolio-react/ressources/arrowDown.svg" alt="logo fleche bas" className="logo-btn-rond-acc" />
+                    <img src={flecheBas} alt="logo fleche bas" className="logo-btn-rond-acc" />
                 </div>
             </a>
         </section>

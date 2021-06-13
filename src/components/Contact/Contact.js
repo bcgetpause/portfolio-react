@@ -28,29 +28,37 @@ export default function Contact() {
             }
         });
         // add animations and labels to the timeline
-        tl.from(".section-contact", {opacity: 0});
+        tl.from(".section-contact", { opacity: 0 });
 
     }, []);
 
-
-    /* 
-    
+    /**
+     * Fonction permettant d'utiliser la fonction mailto pour envoyer un mail
+     */
+    const sendMail = () => {
         const destinataire = 'stefan.llobera@gmail.com'
-        const mailPwd = () => {
-            
-            const prenom = document.querySelector('input#prenom');
-            const nom = document.querySelector('input#nom');
-            const contenu = document.querySelector('textarea#txt');
-            if (prenom && nom && contenu) {
-                console.log('nuibsjgbfdsuigds')
-                setMailto(encodeURI('mailto:' + destinataire + '?' +
-                '&subject=Contact de ' + prenom.value + ' ' + nom.value +
-                '&body=' + contenu.value));
+        const prenom = document.querySelector('input#prenom');
+        const nom = document.querySelector('input#nom');
+        const contenu = document.querySelector('textarea#txt');
+        if (prenom && nom && contenu) {
+            if (prenom.value !== '' && nom.value !== '' && contenu.value !== '') {
+                const mailto =
+                    encodeURI('mailto:' + destinataire + '?' +
+                        'subject=Contact de ' + prenom.value + ' ' + nom.value +
+                        '&body=' + contenu.value);
+                window.location.href = mailto;
             }
         }
-    
-    
-        const handleSendMail = mailPwd(); */
+    }
+
+    /**
+     * Fonction permettant de ne pas recharger la page apres avoir validé le formulaire de contact
+     * @param {*} event 
+     */
+    const submited = (event) => {
+        event.preventDefault();
+    };
+
 
     return (
         <section className="section-contact" id="contact">
@@ -58,8 +66,7 @@ export default function Contact() {
             <h2><strong>Rentrons</strong> en Contact</h2>
 
             <div className="container-form">
-
-                <form className="form-bloc" >
+                <form className="form-bloc" onSubmit={submited} >
 
                     <div className="form-groupe">
                         <label htmlFor="prenom">Prénom</label>
@@ -74,8 +81,9 @@ export default function Contact() {
                     </div>
 
                     <div className="form-groupe">
-                        <input type="submit" value="ENVOYER" className="button-sub"></input>
+                        <button onClick={sendMail} className="button-sub">ENVOYER</button>
                     </div>
+
                 </form>
             </div>
         </section>

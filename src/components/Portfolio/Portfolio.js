@@ -1,5 +1,11 @@
 import React, { useEffect } from 'react'
 import './Portfolio.scss'
+import bootsrap from '../../ressources/bootstrap.jpg'
+import console from '../../ressources/console.jpg'
+import animecss from '../../ressources/animcss.jpg'
+import bootstrapsite from '../../ressources/bootstrapsite.jpg'
+import flex from '../../ressources/flex.jpg'
+
 import {  TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 
 export default function Portfolio() {
@@ -12,7 +18,7 @@ export default function Portfolio() {
 
         const tlPortfolio = new TimelineMax({
             scrollTrigger: {
-                trigger: ".portfolio",
+                trigger: portfolioContainer,
                 start: "top center", // when the top of the trigger hits the top of the viewport
                 toggleActions: "play none none reverse"
             }
@@ -36,21 +42,6 @@ export default function Portfolio() {
 
         tlPortfolio2
             .staggerFrom(itemPortfolio2, 1, { opacity: 0 }, 0.2, '-=0.5')
-
-        // Vague 3
-
-        const itemPortfolio3 = document.querySelectorAll('.vague3')
-
-        const tlPortfolio3 = new TimelineMax({
-            scrollTrigger: {
-                markers: false,
-                trigger: itemPortfolio2,
-                start: "top center", // when the top of the trigger hits the top of the viewport
-            }
-        });
-
-        tlPortfolio3
-            .staggerFrom(itemPortfolio3, 1, { opacity: 0 }, 0.2, '-=0.5')
             // eslint-disable-next-line
     }, [])
 
@@ -60,7 +51,7 @@ export default function Portfolio() {
             <div className="cont-portfolio">
                 <div className="item vague1">
                     <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/bootstrap.jpg" alt="img portfolio" />
+                        <img src={bootsrap} alt="img portfolio" />
                     </div>
                     <h3>Mon fabuleux projet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
@@ -69,7 +60,7 @@ export default function Portfolio() {
 
                 <div className="item vague1">
                     <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/console.jpg" alt="img portfolio" />
+                        <img src={console} alt="img portfolio" />
                     </div>
                     <h3>Mon fabuleux projet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
@@ -78,7 +69,7 @@ export default function Portfolio() {
 
                 <div className="item vague1">
                     <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/animcss.jpg" alt="img portfolio" />
+                        <img src={animecss} alt="img portfolio" />
                     </div>
                     <h3>Mon fabuleux projet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
@@ -88,7 +79,7 @@ export default function Portfolio() {
 
                 <div className="item vague2">
                     <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/bootstrapsite.jpg" alt="img portfolio" />
+                        <img src={bootstrapsite} alt="img portfolio" />
                     </div>
                     <h3>Mon fabuleux projet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
@@ -98,7 +89,7 @@ export default function Portfolio() {
 
                 <div className="item vague2">
                     <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/flex.jpg" alt="img portfolio" />
+                        <img src={flex} alt="img portfolio" />
                     </div>
                     <h3>Mon fabuleux projet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
@@ -106,42 +97,7 @@ export default function Portfolio() {
                 </div>
 
 
-                <div className="item vague2">
-                    <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/d3.jpg" alt="img portfolio" />
-                    </div>
-                    <h3>Mon fabuleux projet</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
-                    <a href="https://codepen.io/your-work" className="btn-projets">Découvrez le projet</a>
-                </div>
-
-
-                <div className="item vague3">
-                    <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/Menus.jpg" alt="img portfolio" />
-                    </div>
-                    <h3>Mon fabuleux projet</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
-                    <a href="https://codepen.io/your-work" className="btn-projets">Découvrez le projet</a>
-                </div>
-
-
-                <div className="item vague3">
-                    <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/projetsCars.jpg" alt="img portfolio" />
-                    </div>
-                    <h3>Mon fabuleux projet</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
-                    <a href="https://codepen.io/your-work" className="btn-projets">Découvrez le projet</a>
-                </div>
-                <div className="item vague3">
-                    <div className="cont-img-port">
-                        <img src="portfolio-react/ressources/form.jpg" alt="img portfolio" />
-                    </div>
-                    <h3>Mon fabuleux projet</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
-                    <a href="https://codepen.io/your-work" className="btn-projets">Découvrez le projet</a>
-                </div>
+                
             </div>
         </section>
     )
