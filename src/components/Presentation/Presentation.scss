@@ -10,8 +10,8 @@
 .fond-forme {
     background: #485563;
     background-image: linear-gradient(to right, #29323c, #485563);
-    width: 2300px;
-    height: 1400px;
+    width: 3300px;
+    height: 1700px;
     position: absolute;
     transform: rotate(-45deg) translateX(100px) translateY(-25%);
     z-index: -1;
@@ -97,6 +97,38 @@
 }
 
 /* Medias Presentation */
+
+@media screen and (max-width: 2230px) {
+    .fond-forme {
+        width: 2500px;
+        height: 1400px;
+    }
+}
+
+@media screen and (max-width: 1600px) {
+    .fond-forme {
+        width: 2500px;
+        height: 1100px;
+        transform: rotate(-45deg) translateX(200px) translateY(-20%);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+
+    .container-presentation {
+        padding-left: 0px;
+    }
+
+    .titre-pres {
+        padding-left: 0px;
+    }
+
+    .ntie-hover {
+        span {
+            width: auto;
+        }
+    }
+}
 
 @media screen and (max-width: 1300px) {
 

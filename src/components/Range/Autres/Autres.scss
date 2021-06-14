@@ -64,7 +64,11 @@
     font-size: 24px;
 } 
 /* Medias Range */
-
+@media screen and (min-width: 2080px) {
+    .grille-autres {
+        grid-template: repeat(3, 80px) / repeat(3, 400px);
+    }
+}
 @media screen and (max-width: 1550px) {
     .grille-autres{
         grid-template: repeat(4,80px) / repeat(2,400px);

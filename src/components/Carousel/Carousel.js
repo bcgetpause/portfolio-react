@@ -3,6 +3,7 @@ import './Carousel.scss'
 import { useSwipeable } from 'react-swipeable'
 import flecheGauche from '../../ressources/chevron-left.svg'
 import flecheDroite from '../../ressources/chevron-right.svg'
+import { TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 
 export const CarouselItem = ({ children, width, id }) => {
     return (
@@ -13,11 +14,31 @@ export const CarouselItem = ({ children, width, id }) => {
 export default function Carousel({ children, titre }) {
     const [activeIndex, setActiveIndex] = useState(0);
 
+    // Methode pour redimensioner correctement la div pour afficher les indicateurs juste en dessous
     useEffect(() => {
         const elt = children[0]
         const inner = document.querySelector('.inner');
         inner.style.height = document.querySelector('#' + elt.props.id).offsetHeight + "px";
     // eslint-disable-next-line
+    }, [])
+
+    // Animation du titre
+    useEffect(() => {
+        const sectionComp = document.querySelector('.carousel');
+        const titreComp = document.querySelector('.titre-exp');
+
+        const tlCompetences = new TimelineMax({
+            scrollTrigger: {
+                trigger: sectionComp,
+                start: "top center", // when the top of the trigger hits the top of the viewport
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        tlCompetences
+            .from(titreComp, { opacity: 0, duration: 0.3 })
+
+        // eslint-disable-next-line
     }, [])
 
     const handlers = useSwipeable({
@@ -35,7 +56,7 @@ export default function Carousel({ children, titre }) {
         }
         const elt = children[newIndex]
         const inner = document.querySelector('.inner');
-        inner.style.height = document.querySelector('#' + elt.props.id).offsetHeight + "px";
+        inner.style.height = (document.querySelector('#' + elt.props.id).offsetHeight + 10) + "px";
         setActiveIndex(newIndex);
     }
 

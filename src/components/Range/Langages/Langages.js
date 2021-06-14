@@ -55,7 +55,7 @@ export default function Langages() {
                 </div>
 
                 <div className="range-langages">
-                    <p className="label-langage">CSS</p>
+                    <p className="label-langage">CSS / SCSS</p>
                     <p className="number-langage">80%</p>
                     <div className="barre-langage b4"></div>
                     <div className="barre-grises-langage"></div>

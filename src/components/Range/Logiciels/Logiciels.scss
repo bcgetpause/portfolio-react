@@ -77,7 +77,11 @@
 }
 
 /* Medias Range */
-
+@media screen and (min-width: 2080px) {
+    .grille-logiciels {
+        grid-template: repeat(2, 80px) / repeat(3, 400px);
+    }
+}
 @media screen and (max-width: 1550px) {
     .grille-logiciels {
         grid-template: repeat(3, 80px) / repeat(2, 400px);
