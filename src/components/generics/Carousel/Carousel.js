@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import './Carousel.scss'
 import { useSwipeable } from 'react-swipeable'
-import flecheGauche from '../../ressources/chevron-left.svg'
-import flecheDroite from '../../ressources/chevron-right.svg'
+import flecheGauche from '../../../ressources/chevron-left.svg'
+import flecheDroite from '../../../ressources/chevron-right.svg'
 import { TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 
 export const CarouselItem = ({ children, width, id }) => {
@@ -36,7 +36,7 @@ export default function Carousel({ children, titre }) {
         });
 
         tlCompetences
-            .from(titreComp, { opacity: 0, duration: 0.3 })
+            .from(titreComp, { opacity: 0, duration: 0.3 });
 
         // eslint-disable-next-line
     }, [])

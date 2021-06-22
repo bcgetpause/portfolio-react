@@ -63,7 +63,7 @@ export default function Accueil() {
                 }}
             />
             {/* <a href="#port" className="btn-acc btn-acc1">Portfolio</a> */}
-            <a href="#range" className="btn-acc btn-acc1">Expériences</a>
+            <a href="#exp" className="btn-acc btn-acc1">Expériences</a>
 
             <div className="medias">
                 

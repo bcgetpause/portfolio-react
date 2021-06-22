@@ -5,17 +5,11 @@
     border-top: 1px dashed #333;
     border-bottom: 1px dashed #333;
     color: #e7e7e7;
-}
 
-.fond-forme {
     background: #485563;
     background-image: linear-gradient(to right, #29323c, #485563);
-    width: 3300px;
-    height: 1700px;
-    position: absolute;
-    transform: rotate(-45deg) translateX(100px) translateY(-25%);
-    z-index: -1;
 }
+
 
 .titre-pres {
     font-size: 40px;
@@ -32,6 +26,7 @@
     margin: 50px 0 130px 0;
     flex-shrink: 0;
     padding-left: 300px;
+
 }
 
 .pres-gauche,
@@ -97,22 +92,6 @@
 }
 
 /* Medias Presentation */
-
-@media screen and (max-width: 2230px) {
-    .fond-forme {
-        width: 2500px;
-        height: 1400px;
-    }
-}
-
-@media screen and (max-width: 1600px) {
-    .fond-forme {
-        width: 2500px;
-        height: 1100px;
-        transform: rotate(-45deg) translateX(200px) translateY(-20%);
-    }
-}
-
 @media screen and (max-width: 1300px) {
 
     .container-presentation {
@@ -151,12 +130,6 @@
 
     .chiffre-style {
         font-size: 25px;
-    }
-
-    .fond-forme {
-        width: 100%;
-        height: 150%;
-        transform: rotate(0) translateY(0) translateX(0);
     }
 
     .titre-pres {

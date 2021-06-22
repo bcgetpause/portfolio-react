@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './Portfolio.scss'
 import bootsrap from '../../ressources/bootstrap.jpg'
-import console from '../../ressources/console.jpg'
+import consoleimg from '../../ressources/console.jpg'
 import animecss from '../../ressources/animcss.jpg'
 import bootstrapsite from '../../ressources/bootstrapsite.jpg'
 import flex from '../../ressources/flex.jpg'
@@ -31,12 +31,11 @@ export default function Portfolio() {
         // Vague 2 
 
         const itemPortfolio2 = document.querySelectorAll('.vague2')
-
         const tlPortfolio2 = new TimelineMax({
             scrollTrigger: {
-                markers: false,
                 trigger: itemPortfolio,
                 start: "top center", // when the top of the trigger hits the top of the viewport
+                toggleActions: "play none none reverse"
             }
         });
 
@@ -60,7 +59,7 @@ export default function Portfolio() {
 
                 <div className="item vague1">
                     <div className="cont-img-port">
-                        <img src={console} alt="img portfolio" />
+                        <img src={consoleimg} alt="img portfolio" />
                     </div>
                     <h3>Mon fabuleux projet</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
@@ -96,8 +95,16 @@ export default function Portfolio() {
                     <a href="https://codepen.io/your-work" className="btn-projets">Découvrez le projet</a>
                 </div>
 
-
+                <div className="item vague2">
+                    <div className="cont-img-port">
+                        <img src={flex} alt="img portfolio" />
+                    </div>
+                    <h3>Mon fabuleux projet</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, dolore?</p>
+                    <a href="https://codepen.io/your-work" className="btn-projets">Découvrez le projet</a>
+                </div>
                 
+
             </div>
         </section>
     )

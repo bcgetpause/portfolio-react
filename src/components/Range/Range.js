@@ -1,6 +1,6 @@
 import React from 'react'
 import './Range.scss'
-import Carousel, { CarouselItem } from '../Carousel/Carousel';
+import Carousel, { CarouselItem } from '../generics/Carousel/Carousel';
 import Langages from './Langages/Langages';
 import Frameworks from './Frameworks/Frameworks'
 import Logiciels from './Logiciels/Logiciels';

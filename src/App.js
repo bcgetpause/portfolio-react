@@ -26,6 +26,7 @@ function App() {
         <Experiences></Experiences>
         <Parallaxe></Parallaxe>
         <Contact></Contact>
+        
       </div>
       <footer>
         Tout Droits réservés &copy;

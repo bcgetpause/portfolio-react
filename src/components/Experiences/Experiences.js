@@ -1,76 +1,94 @@
-import React, {useEffect} from 'react'
-import './Experiences.scss'
-import google from '../../ressources/google.svg'
-import instagram from '../../ressources/instagram.svg'
-import amazon from '../../ressources/amazon.svg'
-import apple from '../../ressources/apple.svg'
-import plane from '../../ressources/plane.svg'
+import React, { useEffect } from 'react';
+import './Experiences.scss';
 import gsap from "gsap";
+import * as dataCV from '../Datas/DataExperience';
+import { TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
+
+
 
 export default function Experiences() {
 
     useEffect(() => {
-        const tl = gsap.timeline({
-            // yes, we can add it to an entire timeline!
+
+        const tlLine = new TimelineMax({
             scrollTrigger: {
-                trigger: ".travail-exp",
+                markers: true,
+                trigger: ".flex-cont-bloc-exp",
                 start: "top center", // when the top of the trigger hits the top of the viewport
+                toggleActions: "play none none reverse"
             }
         });
-        // add animations and labels to the timeline
-        tl.from(".travail-exp", {opacity: 0});
+
+        tlLine
+            .staggerFrom(".flex-cont-bloc-exp", 0.6, {opacity: 0, duration: 0.2 })
+
+        const tlBlocOdd = new TimelineMax({
+            scrollTrigger: {
+                markers: true,
+                trigger: ".flex-cont-bloc-exp",
+                start: "top center", // when the top of the trigger hits the top of the viewport
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        tlBlocOdd
+            .staggerFrom(".bloc-odd", 0.6, { x: "9999", opacity: 0, duration: 0.2 })
+
+        const tlBlocEven = new TimelineMax({
+            scrollTrigger: {
+                markers: true,
+                trigger: ".flex-cont-bloc-exp",
+                start: "top center", // when the top of the trigger hits the top of the viewport
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        tlBlocEven
+            .staggerFrom(".bloc-even", 0.6, { x: "-9999", opacity: 0, duration: 0.2 });
+
     }, [])
+
+
+    const expCard = dataCV.LST_EXPERIENCES.map((exp, index) => (
+        <div className={index % 2 === 0 ? "bloc bloc-odd" : "bloc bloc-even"} key={index}>
+            <div className="contenu-bloc">
+                <div className="header-exp">
+                    <img src={exp.logo} alt="linkedin icone" className="logo-exp" />
+                    <p className="titre-section-bloc">{exp.date + ': ' + exp.client}</p>
+                </div>
+                <div>
+                    <span className="txt-titre">Poste :</span>
+                    <p>{exp.poste}</p>
+                </div>
+                <br />
+                <div className="txt-section">
+                    <span className="txt-titre">Résumé :</span>
+                    {exp.resume}
+                </div>
+                {exp.descriptif !== '' &&
+                    <>
+                        <br />
+                        <div className="txt-desc">
+                            <span className="txt-titre">Descriptif :</span>
+                            {exp.descriptif}
+                        </div>
+                    </>
+                }
+                <br />
+                <div>
+                    <span className="txt-titre">Environnement technique :</span>
+                    <p>{exp.environnement}</p>
+                </div>
+            </div>
+        </div>
+    ));
 
     return (
         <section className="travail-exp" id="exp">
             <h2 className="titre-travail-exp">Mes expériences</h2>
             <div className="cont-exp-travail">
-                <div className="barre-verticale">
-                    <div className="boule-ico">
-                        <img src={google} alt="icone gauche" />
-                    </div>
-                    <div className="boule-ico">
-                        <img src={instagram} alt="icone gauche" />
-                    </div>
-                    <div className="boule-ico">
-                        <img src={amazon} alt="icone gauche" />
-                    </div>
-                    <div className="boule-ico">
-                        <img src={apple} alt="icone gauche" />
-                    </div>
-                    <div className="boule-ico">
-                        <img src={plane} className="avion" alt="icone gauche" />
-                    </div>
-                </div>
-
                 <div className="flex-cont-bloc-exp">
-                    <div className="bloc bloc1">
-                        <div className="contenu-bloc">
-                            <p className="titre-section-bloc">Google, 2019</p>
-                            <p className="txt-section">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In perferendis dignissimos doloribus quaerat corrupti facere ratione modi vel. Voluptatem minima facilis eaque eum quia voluptatibus dolorem minus incidunt repellendus culpa?</p>
-                        </div>
-                    </div>
-
-                    <div className="bloc bloc2">
-                        <div className="contenu-bloc">
-                            <p className="titre-section-bloc">Instagram, 2017-2018</p>
-                            <p className="txt-section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, vel ipsam nulla aliquid quae beatae ut et cum libero molestiae?</p>
-                        </div>
-                    </div>
-
-                    <div className="bloc bloc3">
-                        <div className="contenu-bloc">
-                            <p className="titre-section-bloc">Amazon, 2015-2016</p>
-                            <p className="txt-section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, vel ipsam nulla aliquid quae beatae ut et cum libero molestiae?</p>
-                        </div>
-                    </div>
-
-                    <div className="bloc bloc4">
-                        <div className="contenu-bloc">
-                            <p className="titre-section-bloc">Apple, 2012-2014</p>
-                            <p className="txt-section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, vel ipsam nulla aliquid quae beatae ut et cum libero molestiae?</p>
-                        </div>
-                    </div>
+                    {expCard}
                 </div>
             </div>
         </section>

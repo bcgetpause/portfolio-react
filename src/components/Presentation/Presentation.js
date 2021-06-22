@@ -28,7 +28,6 @@ export default function Presentation() {
         <section className="presentation" id="pres">
             <h2 className="titre-pres">Parcours personnel</h2>
             <div className="container-presentation">
-                <div className="fond-forme"></div>
                 <div className="pres-gauche">
                     <h3>Cursus scolaire</h3>
                     <hr />
