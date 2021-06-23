@@ -18,40 +18,16 @@
     justify-content: center;
 }
 
-.barre-verticale {
-    height: 1000px;
-    width: 5px;
-    background: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    left: -30px;
-}
-
-.boule-ico {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid #333;
-    background: #f1f1f1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.boule-ico img {
-    width: 25px;
-}
 
 .txt-desc {
     height: 0;
     opacity: 0;
     transition: all 0.3s ease;
+
     ul {
         list-style-type: none;
         padding-left: 10px;
+
         ul {
             list-style-type: none;
             padding-left: 20px;
@@ -83,16 +59,18 @@
         width: 45%;
         margin-right: auto;
         margin-left: calc(50% + 5px);
+
         .contenu-bloc {
             padding: 20px;
             width: 100%;
             height: 100%;
-            border: 2px solid black;
+            border: 1px solid black;
             background: white;
             transition: transform 0.25s ease-in-out;
             position: relative;
             transform: translate(10px, -10px);
         }
+
         .contenu-bloc:hover {
             transform: translate(0, 0);
 
@@ -108,16 +86,18 @@
         width: 45%;
         margin-right: calc(50% + 5px);
         margin-left: auto;
+
         .contenu-bloc {
             padding: 20px;
             width: 100%;
             height: 100%;
-            border: 2px solid black;
+            border: 1px solid black;
             background: white;
             transition: transform 0.25s ease-in-out;
             position: relative;
             transform: translate(-10px, -10px);
         }
+
         .contenu-bloc:hover {
             transform: translate(0, 0);
 
@@ -133,13 +113,11 @@
     width: 100%;
     margin-bottom: 37.5px;
     cursor: pointer;
-    border: 1px solid #333;
     position: relative;
 }
 
 
 .titre-section-bloc {
-    /* font-family: 'Abril Fatface', sans-serif; */
     font-size: 25px;
     padding-bottom: 10px;
 }
@@ -167,36 +145,7 @@
     width: 20%;
     height: auto;
     margin-right: 15px;
-  }
-
-/******** Modal ******/
-.modal-cont {
-    display: flex;
 }
-
-.modal {
-    z-index: 9999;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 250px;
-    min-height: 100px;
-    padding: 15px;
-    border-radius: 10px;
-    transform: translate(-50%, -50%);
-    background: #fff;
-}
-
-.bg {
-    z-index: 9998;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.3);
-}
-
 
 
 /* Media section travail exp */
@@ -208,24 +157,55 @@
 
 @media screen and (max-width: 950px) {
 
-    .barre-verticale {
-        height: 1200px;
-    }
+    .flex-cont-bloc-exp {
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
 
-    .bloc {
-        height: 250px;
-        margin-bottom: 37.5px;
-    }
-
-    .barre-verticale {
-        margin-left: 60px;
+        &::before {
+            display: none;
+        }
     }
 
     .flex-cont-bloc-exp {
-        margin-right: 30px;
-    }
+        .bloc:nth-child(odd) {
+            background: none;
+            width: 100%;
+            margin: 10px 0;
 
+
+            .contenu-bloc {
+                transform: none;
+                border-radius: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+                .txt-desc {
+                    opacity: 1;
+                    height: auto;
+                }
+            }
+        }
+
+        .bloc:nth-child(even) {
+            width: 100%;
+            margin: 10px 0;
+            background: none;
+
+            .contenu-bloc {
+                transform: none;
+                border-radius: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+                .txt-desc {
+                    opacity: 1;
+                    height: auto;
+                }
+            }
+        }
+    }
 }
+
+
 
 @media screen and (max-width: 520px) {
 
@@ -233,20 +213,29 @@
         font-size: 16px;
     }
 
-    .bloc {
-        height: 400px;
+    p {
+        font-size: 16px;
     }
-
-    .barre-verticale {
-        height: 1800px;
-    }
-
-}
-
-@media screen and (max-width: 380px) {
 
     .txt-section {
-        font-size: 15px;
+        ul {
+            li {
+                font-size: 16px;
+            }
+        }
     }
 
+    .txt-desc {
+        ul {
+            li {
+                font-size: 16px;
+            }
+
+            ul {
+                li {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
 }

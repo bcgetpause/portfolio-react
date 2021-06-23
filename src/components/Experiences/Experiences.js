@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import './Experiences.scss';
-import gsap from "gsap";
+
 import * as dataCV from '../Datas/DataExperience';
 import { TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 
 
@@ -12,39 +13,70 @@ export default function Experiences() {
 
         const tlLine = new TimelineMax({
             scrollTrigger: {
-                markers: true,
                 trigger: ".flex-cont-bloc-exp",
                 start: "top center", // when the top of the trigger hits the top of the viewport
                 toggleActions: "play none none reverse"
             }
         });
 
-        tlLine
-            .staggerFrom(".flex-cont-bloc-exp", 0.6, {opacity: 0, duration: 0.2 })
 
-        const tlBlocOdd = new TimelineMax({
-            scrollTrigger: {
-                markers: true,
-                trigger: ".flex-cont-bloc-exp",
-                start: "top center", // when the top of the trigger hits the top of the viewport
-                toggleActions: "play none none reverse"
+        ScrollTrigger.matchMedia({
+            "(min-width: 950px)": function () {
+                tlLine
+                    .staggerFrom(".flex-cont-bloc-exp", 0.6, { opacity: 0, duration: 0.2 })
+
+                const tlBlocOdd = new TimelineMax({
+                    scrollTrigger: {
+                        trigger: ".flex-cont-bloc-exp",
+                        start: "top center", // when the top of the trigger hits the top of the viewport
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+                tlBlocOdd
+                    .staggerFrom(".bloc-odd", 0.6, { x: "9999", opacity: 0, duration: 0.2 })
+
+                const tlBlocEven = new TimelineMax({
+                    scrollTrigger: {
+                        trigger: ".flex-cont-bloc-exp",
+                        start: "top center", // when the top of the trigger hits the top of the viewport
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+                tlBlocEven
+                    .staggerFrom(".bloc-even", 0.6, { x: "-9999", opacity: 0, duration: 0.2 });
+            },
+
+            "(max-width: 950px)": function () {
+                tlLine
+                    .staggerFrom(".flex-cont-bloc-exp", 0.6, { opacity: 0, duration: 0.2 })
+
+                const tlBlocOdd = new TimelineMax({
+                    scrollTrigger: {
+                        trigger: ".flex-cont-bloc-exp",
+                        start: "top center", // when the top of the trigger hits the top of the viewport
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+                tlBlocOdd
+                    .staggerFrom(".bloc-odd", 0.6, { opacity: 0, duration: 0.2 })
+
+                const tlBlocEven = new TimelineMax({
+                    scrollTrigger: {
+                        trigger: ".flex-cont-bloc-exp",
+                        start: "top center", // when the top of the trigger hits the top of the viewport
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+                tlBlocEven
+                    .staggerFrom(".bloc-even", 0.6, { opacity: 0, duration: 0.2 });
             }
-        });
+        })
 
-        tlBlocOdd
-            .staggerFrom(".bloc-odd", 0.6, { x: "9999", opacity: 0, duration: 0.2 })
 
-        const tlBlocEven = new TimelineMax({
-            scrollTrigger: {
-                markers: true,
-                trigger: ".flex-cont-bloc-exp",
-                start: "top center", // when the top of the trigger hits the top of the viewport
-                toggleActions: "play none none reverse"
-            }
-        });
-
-        tlBlocEven
-            .staggerFrom(".bloc-even", 0.6, { x: "-9999", opacity: 0, duration: 0.2 });
 
     }, [])
 
@@ -54,7 +86,7 @@ export default function Experiences() {
             <div className="contenu-bloc">
                 <div className="header-exp">
                     <img src={exp.logo} alt="linkedin icone" className="logo-exp" />
-                    <p className="titre-section-bloc">{exp.date + ': ' + exp.client}</p>
+                    <p className="titre-section-bloc">{exp.date }</p>
                 </div>
                 <div>
                     <span className="txt-titre">Poste :</span>
