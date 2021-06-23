@@ -21,7 +21,7 @@ function App() {
         <NavBar></NavBar>
         <Accueil></Accueil>
         <Presentation></Presentation>
-        <Portfolio></Portfolio>
+        {/* <Portfolio></Portfolio> */}
         <Range></Range>
         <Experiences></Experiences>
         <Parallaxe></Parallaxe>

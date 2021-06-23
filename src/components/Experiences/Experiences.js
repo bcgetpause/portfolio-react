@@ -23,7 +23,7 @@ export default function Experiences() {
         ScrollTrigger.matchMedia({
             "(min-width: 950px)": function () {
                 tlLine
-                    .staggerFrom(".flex-cont-bloc-exp", 0.6, { opacity: 0, duration: 0.2 })
+                    .staggerFrom(".flex-cont-bloc-exp", 0.6, { opacity: 0, duration: 0.2 }, 0.2, '-=1')
 
                 const tlBlocOdd = new TimelineMax({
                     scrollTrigger: {
@@ -34,7 +34,7 @@ export default function Experiences() {
                 });
 
                 tlBlocOdd
-                    .staggerFrom(".bloc-odd", 0.6, { x: "9999", opacity: 0, duration: 0.2 })
+                    .staggerFrom(".bloc-odd", 0.6, { x: "+200", opacity: 0, duration: 0.2 }, 0.2, '-=1')
 
                 const tlBlocEven = new TimelineMax({
                     scrollTrigger: {
@@ -45,7 +45,7 @@ export default function Experiences() {
                 });
 
                 tlBlocEven
-                    .staggerFrom(".bloc-even", 0.6, { x: "-9999", opacity: 0, duration: 0.2 });
+                    .staggerFrom(".bloc-even", 0.6, { x: "-200", opacity: 0, duration: 0.2 }, 0.2, '-=1');
             },
 
             "(max-width: 950px)": function () {

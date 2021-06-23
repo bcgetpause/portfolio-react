@@ -6,7 +6,7 @@ export default function Presentation() {
 
     useEffect(() => {
         const presentationContainer = document.querySelector('.presentation')
-        const titrePres = document.querySelector('.titre-pres');
+        const presDroite = document.querySelector('.pres-droite');
         const presGauche = document.querySelector('.pres-gauche')
         const listePres = document.querySelectorAll('.item-liste')
 
@@ -18,9 +18,9 @@ export default function Presentation() {
         });
 
         tlpres
-            .from(titrePres, { y: -200, opacity: 0, duration: 0.6 })
-            .from(presGauche, { y: -20, opacity: 0, duration: 0.6 }, '-=0.5')
-            .staggerFrom(listePres, 1, { opacity: 0 }, 0.2, '-=0.5')
+            .from(presGauche, { y: -20, opacity: 0, duration: 0.3 })
+            .from(presDroite, { y: -200, opacity: 0, duration: 0.3 }, '-=0.6')
+            .staggerFrom(listePres, 0.3, { opacity: 0 }, 0.2)
         // eslint-disable-next-line
     }, [])
 
